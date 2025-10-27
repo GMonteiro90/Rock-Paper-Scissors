@@ -24,12 +24,22 @@ function getComputerChoice() {
     return computerChoice;
 };
 
+function resetGame(){
+    humanScore = 0;
+    computerScore = 0;
+    ties = 0;
+    roundResult.textContent = '';
+    choices.textContent = '';
+}
+
 function playRound(humanChoice) {
     let computerChoice = getComputerChoice();
     choices.textContent = (`You chose ${humanChoice} and computer chose ${computerChoice}.`);
+    totalResult.textContent = `Player = ${humanScore} || Computer = ${computerScore} || Ties = ${ties}`;
+    end.textContent = '';
 
     if (humanChoice === computerChoice) {
-        roundResult.textContent = 'tie!';
+        roundResult.textContent = 'Tie!';
         ties++;
     } else if (humanChoice == "rock" && computerChoice == "scissors" ||
         humanChoice == "paper" && computerChoice == "rock" ||
@@ -43,21 +53,11 @@ function playRound(humanChoice) {
     };
     totalResult.textContent = `Player = ${humanScore} || Computer = ${computerScore} || Ties = ${ties}`;
     if (humanScore == 5) {
-        end.textContent = `Congratulations! You won with ${humanScore} against Computer's ${computerScore}. The scores will now be reset!`;
-        humanScore = 0;
-        computerScore = 0;
-        ties = 0;
-        totalResult.textContent = `Player = ${humanScore} || Computer = ${computerScore} || Ties = ${ties}`;
-        roundResult.textContent = '';
-        choices.textContent = '';
+        end.textContent = `Congratulations! You won with ${humanScore} against Computer's ${computerScore}. There were ${ties} ties. The scores will now be reset!`;
+        resetGame();
     } else if(computerScore == 5){
         end.textContent = `You lost with ${humanScore} against Computer's ${computerScore}. The scores will now be reset!`;
-        humanScore = 0;
-        computerScore = 0;
-        ties = 0;
-        totalResult.textContent = `Player = ${humanScore} || Computer = ${computerScore} || Ties = ${ties}`;
-        roundResult.textContent = '';
-        choices.textContent = '';
+        resetGame();
     }
 };
 
@@ -73,6 +73,3 @@ buttonScissors.addEventListener('click', () =>{
     humanChoice = 'scissors';
     playRound(humanChoice);
 });
-
-totalResult.textContent = `Player : ${humanScore} || Computer : ${computerScore} || Ties : ${ties}`;
-

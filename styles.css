@@ -1,0 +1,60 @@
+body {
+    background-color: #f6f1dd;
+}
+
+.gameArea{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: #ff9994;
+    border-radius: 24px;
+}
+
+.welcome{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.pWelcome {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 50px;
+}
+
+.playerRock{
+    background-image: url(fist.png);
+    background-position: center;
+    width: 128px;
+    height: 128px;
+    background-repeat: no-repeat;
+    padding: 80px;
+    cursor:pointer;
+}
+
+.playerPaper{
+    background-image: url(hand-paper.png);
+    background-position: center;
+    width: 128px;
+    height: 128px;
+    background-repeat: no-repeat;
+    padding: 80px;
+    cursor: pointer;
+}
+
+.playerScissors{
+    background-image: url(scissor.png);
+    background-position: center;
+    width: 128px;
+    height: 128px;
+    background-repeat: no-repeat;
+    padding: 80px;
+    cursor: pointer;
+}
+
+.results{
+    padding-top: 20px;
+}
